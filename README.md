@@ -4,6 +4,8 @@ Eine selbst gehostete, browserbasierte Knowledge Base für lokale Dokumentatione
 
 Läuft als Docker-Container im Heimnetz und ist von allen Geräten im lokalen Netzwerk erreichbar. Dateien wie HTML-Seiten und PDFs können per Drag & Drop hochgeladen, kategorisiert und direkt im Browser geöffnet werden — ohne Cloud, ohne externe Abhängigkeiten.
 
+![kbase Screenshot](kbase.jpg)
+
 ![Material Design 3 Dark Theme](https://img.shields.io/badge/UI-Material%20Design%203-blue)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
 ![License](https://img.shields.io/badge/License-MIT-green)
