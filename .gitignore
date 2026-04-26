@@ -1,0 +1,9 @@
+# Laufzeit-Daten — nicht in Git
+data/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
