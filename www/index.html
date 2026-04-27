@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Knowledge Base</title>
+<link id="favicon" rel="icon">
 <style>
 .icon { width: 24px; height: 24px; fill: currentColor; display: inline-block; flex-shrink: 0; vertical-align: middle; pointer-events: none; }
 .icon-sm { width: 16px; height: 16px; }
@@ -1066,6 +1067,52 @@ document.addEventListener('drop', e => {
   if (file) uploadFile(file);
 });
 // ────────────────────────────────────────────────────────────────────────────
+
+(function () {
+  const sz = 64, mid = sz / 2;
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = sz;
+  const g = cv.getContext('2d');
+
+  g.fillStyle = '#1A2530';
+  g.beginPath();
+  g.roundRect(0, 0, sz, sz, 12);
+  g.fill();
+
+  g.translate(mid, mid);
+  g.rotate(Math.PI);
+  g.translate(-mid, -mid);
+
+  // left page (lighter)
+  g.beginPath();
+  g.moveTo(mid,  9); g.lineTo(5,  15); g.lineTo(5,  51); g.lineTo(mid, 47);
+  g.closePath();
+  g.fillStyle = '#CCE5FF';
+  g.fill();
+
+  // right page (primary blue)
+  g.beginPath();
+  g.moveTo(mid,  9); g.lineTo(59, 15); g.lineTo(59, 51); g.lineTo(mid, 47);
+  g.closePath();
+  g.fillStyle = '#92CBFF';
+  g.fill();
+
+  // text lines
+  g.strokeStyle = '#355269';
+  g.lineWidth = 2;
+  g.lineCap = 'round';
+  [22, 30, 38].forEach(y => {
+    g.beginPath(); g.moveTo(10, y);      g.lineTo(mid - 4, y - 0.5); g.stroke();
+    g.beginPath(); g.moveTo(mid + 4, y - 0.5); g.lineTo(54, y);      g.stroke();
+  });
+
+  // spine
+  g.fillStyle = '#004A72';
+  g.fillRect(mid - 2, 7, 4, 42);
+
+  const lnk = document.getElementById('favicon');
+  lnk.href = cv.toDataURL();
+})();
 
 loadPages();
 </script>
