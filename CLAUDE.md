@@ -22,12 +22,12 @@ There is no build step — the frontend is a single HTML file served directly by
 
 Two Docker containers managed by `docker-compose.yml`:
 
-- **kbase** (nginx:alpine) — serves the static frontend from `/www/`, proxies `/api/*` to the Flask container, and serves uploaded docs from `/data/docs/`
-- **kbase-api** (python:3.12-alpine + Flask) — REST API at port 5000 (internal only)
+- **dokubase** (nginx:alpine) — serves the static frontend from `/www/`, proxies `/api/*` to the Flask container, and serves uploaded docs from `/data/docs/`
+- **dokubase-api** (python:3.12-alpine + Flask) — REST API at port 5000 (internal only)
 
 ```
 Browser → nginx:8095
-  ├─ /api/* → kbase-api:5000 (Flask)
+  ├─ /api/* → dokubase-api:5000 (Flask)
   └─ /*     → /usr/share/nginx/html (static)
 ```
 

@@ -1,7 +1,7 @@
 services:
-  kbase:
+  dokubase:
     image: nginx:alpine
-    container_name: kbase
+    container_name: dokubase
     restart: unless-stopped
     volumes:
       - ./www:/usr/share/nginx/html:ro
@@ -10,11 +10,11 @@ services:
     ports:
       - "8095:80"
     depends_on:
-      - kbase-api
+      - dokubase-api
 
-  kbase-api:
+  dokubase-api:
     build: ./api
-    container_name: kbase-api
+    container_name: dokubase-api
     restart: unless-stopped
     volumes:
       - ./data:/data
