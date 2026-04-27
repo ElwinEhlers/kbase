@@ -31,7 +31,12 @@ Browser → nginx:8095
   └─ /*     → /usr/share/nginx/html (static)
 ```
 
-**Data persistence:** `data/` is bind-mounted into both containers. `data/pages.json` is the sole source of truth for page metadata; `data/docs/` holds uploaded HTML/PDF files.
+**Storage — kein Datenbankserver:**
+- `data/docs/` — hochgeladene HTML- und PDF-Dateien liegen direkt als Dateien im Ordner; nginx serviert sie statisch ohne Python-Beteiligung
+- `data/pages.json` — alle Metadaten (Titel, Pfad, Kategorie, Reihenfolge) als JSON-Array; kein SQLite, kein Postgres, kein ORM
+- Backup/Migration = `data/` kopieren, fertig
+
+`data/` ist in beide Container gemountet.
 
 ## Key Files
 
